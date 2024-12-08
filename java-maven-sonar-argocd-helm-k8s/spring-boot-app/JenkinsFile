@@ -9,7 +9,7 @@ pipeline {
     stage('Checkout') {
       steps {
         sh 'echo passed'
-        //git branch: 'main', url: 'https://github.com/iam-veeramalla/Jenkins-Zero-To-Hero.git'
+        //git branch: 'main', url: 'https://github.com/Laxmansandy1998/Jenkins-Zero-To-Hero.git'
       }
     }
     stage('Build and Test') {
@@ -48,13 +48,13 @@ pipeline {
     stage('Update Deployment File') {
         environment {
             GIT_REPO_NAME = "java"
-            GIT_USER_NAME = "laxmansandy1998"
+            GIT_USER_NAME = "laxman s"
         }
         steps {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                 sh '''
                     git config user.email slaxmans0007@gmail.com"
-                    git config user.name "laxmansandy1998"
+                    git config user.name "laxman s"
                     BUILD_NUMBER=${BUILD_NUMBER}
                     sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" java/manifests/deployment.yml
                     git add java/manifests/deployment.yml
