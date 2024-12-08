@@ -48,13 +48,13 @@ pipeline {
     stage('Update Deployment File') {
         environment {
             GIT_REPO_NAME = "laxman"
-            GIT_USER_NAME = "laxman s"
+            GIT_USER_NAME = "laxman_s"
         }
         steps {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                 sh '''
                     git config user.email slaxmans0007@gmail.com"
-                    git config user.name "laxman s"
+                    git config user.name "laxman_s"
                     BUILD_NUMBER=${BUILD_NUMBER}
                     sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" java/manifests/deployment.yml
                     git add laxman/deployment.yml
